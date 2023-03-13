@@ -9,18 +9,32 @@ function getComputerChoice() {
 
 //play a round** take player in put - rock papaer scissors, store user input. computer input will be the get computer choice function. return the winner//
 
-function playRound(playerSelection, computerSelection) {
+
+
+function playRound(computerSelection, playerSelection,) {
+    computerSelection = getComputerChoice();
     playerSelection = prompt("make your selection");
-    computerSelection = getComputerChoice()
-    if (playerSelection == "rock", computerSelection == 'Rock', 'Paper', 'Scissors' ) {
-        alert("you win!")
-    } else { 
-        alert('wrong')
+    if (playerSelection === computerSelection) {
+        return ("draw")
+    } else if (playerSelection === 'Rock' && computerSelection === "Scissors"){ 
+        return ("you win, Rock beats Scissors!");
+    } else if (playerSelection === 'Paper' && computerSelection === "Rock"){ 
+        return ("you win, Paper beats Rock!");
+    } else if (playerSelection === 'Scissors' && computerSelection === "Paper"){ 
+        return ("you win, Scissors beats Paper!");    
+    } else if (computerSelection === 'Scissors' && playerSelection === 'Paper') {
+        return ("you lose, scissors beat paper")
+    } else if (computerSelection === 'Rock' && playerSelection === 'Scissors') {
+        return ("you lose, rock beats scissors")
+    } else if (computerSelection === 'Paper' && playerSelection === 'Rock') {
+        return ("you lose, Paper beats Rock")
+    } else {
+        return ("enter valid combo");
     }
-    
-    
-    
-}
+    // THIS MIGHT BE WORKING WELL ENOUGH NOWthis is somewhat working, but theres an issue with the final alert, even if Rock is entered correctly its not evaluating the expression as it should. need to put something in here after that iif "computer selection doesnt have these parameters it automatically wins" shit aint working brother, prolly need to rewrite this//
+    }
+
+
 
 
  
