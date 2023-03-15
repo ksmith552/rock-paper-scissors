@@ -2,22 +2,20 @@
 
 
 function getComputerChoice() {
-    const computerChoices = ['Rock', 'Paper', 'Scissors'];
+    const computerChoices = ['rock', 'paper', 'scissors'];
     let choiceArray = computerChoices[Math.floor(Math.random() * computerChoices.length)];
-    return choiceArray
+    return choiceArray;
 }
 
-function getPlayerChoice() {
-    prompt("make your choice");
-}
+
 
 function playAgain() {
     if (confirm("do you want to play again")) {
         userScore = parseInt(0);
         pcScore = parseInt(0);
-        game()
+        game();
     } else {
-        alert("weenie hut jr")
+        alert("weenie hut jr");
     }
     
 }
@@ -33,19 +31,19 @@ function game() {
     
     for (let i = 0; i < 5; i++) {
     computerSelection = getComputerChoice();
-    playerSelection = prompt("make your selection");
-    console.log(playRound(computerSelection, playerSelection))
+    playerSelection = prompt("make your selection").toLowerCase();
+    console.log(playRound(computerSelection, playerSelection));
     }
 
    if (userScore === pcScore) {
-    alert("STALEMATE")
+    alert("STALEMATE");
    } else if ( userScore > pcScore) {
-    alert("you win!!!!")
+    alert("you win!!!!");
    } else {
-    alert("you lose")
+    alert("you lose");
    }
    
-   playAgain()
+    playAgain();
     
 }
 
@@ -94,24 +92,24 @@ function game() {
     /* need to add the method that makes player selection case insensitive?*/
 
         if (playerSelection === computerSelection) {
-            console.log(`you have ${userScore} points, the computer has ${pcScore}`)
-            return ("draw")
-        } if (playerSelection === "Rock" && computerSelection === "Scissors") {
-            userScore++
-            console.log(`you have ${userScore} points, the computer has ${pcScore}`)
-            return ("you win, Rock beats Scissors!")
-        } else if (playerSelection === "Paper" && computerSelection === "Rock") {
-            userScore++
-            console.log(`you have ${userScore} points, the computer has ${pcScore}`)
-            return ("you win, Paper beats Rock")
-        } else if (playerSelection === "Scissors" && computerSelection === "Paper") {
-            userScore++
-            console.log(`you have ${userScore} points, the computer has ${pcScore}`)
-            return ("you win, Scissors beats Paper!")
+            console.log(`you have ${userScore} points, the computer has ${pcScore}`);
+            return ("draw");
+        } if (playerSelection === "rock" && computerSelection === "scissors") {
+            userScore++;
+            console.log(`you have ${userScore} points, the computer has ${pcScore}`);
+            return ("you win, Rock beats Scissors!");
+        } else if (playerSelection === "paper" && computerSelection === "rock") {
+            userScore++;
+            console.log(`you have ${userScore} points, the computer has ${pcScore}`);
+            return ("you win, Paper beats Rock");
+        } else if (playerSelection === "scissors" && computerSelection === "paper") {
+            userScore++;
+            console.log(`you have ${userScore} points, the computer has ${pcScore}`);
+            return ("you win, Scissors beats Paper!");
         } else  {
-            pcScore++
-            console.log(`you have ${userScore} points, the computer has ${pcScore}`)
-            return ("you lose")
+            pcScore++;
+            console.log(`you have ${userScore} points, the computer has ${pcScore}`);
+            return ("you lose");
         }
            
         
