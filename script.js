@@ -22,9 +22,7 @@ function playAgain() {
 }
 
 
-function game2() {
-    
-}
+
 
 
 function game() {
@@ -79,22 +77,32 @@ function playRound(playerSelection, computerSelection) {
     
     
     if (playerSelection === computerSelection) {
+        displayResult.innerText = "Draw!";
+        displayScore.innerText = `you have ${userScore} points, the computer has ${pcScore}`
         console.log(`you have ${userScore} points, the computer has ${pcScore}`);
         return ("draw");
     } if (playerSelection === "rock" && computerSelection === "scissors") {
         userScore++;
+        displayResult.innerText = "You Win, Rock beats Scissors!";
+        displayScore.innerText = `you have ${userScore} points, the computer has ${pcScore}`
         console.log(`you have ${userScore} points, the computer has ${pcScore}`);
         return ("you win, Rock beats Scissors!");
      } else if (playerSelection === "paper" && computerSelection === "rock") {
         userScore++;
+        displayResult.innerText = "You Win, Paper beats Rock!";
+        displayScore.innerText = `you have ${userScore} points, the computer has ${pcScore}`
         console.log(`you have ${userScore} points, the computer has ${pcScore}`);
         return ("you win, Paper beats Rock");
     } else if (playerSelection === "scissors" && computerSelection === "paper") {
         userScore++;
+        displayResult.innerText = "You Win, Scissors beats Paper!";
+        displayScore.innerText = `you have ${userScore} points, the computer has ${pcScore}`
         console.log(`you have ${userScore} points, the computer has ${pcScore}`);
         return ("you win, Scissors beats Paper!");
     } else  {
         pcScore++;
+        displayResult.innerText = "You Lost this round!!" 
+        displayScore.innerText = `you have ${userScore} points, the computer has ${pcScore}`
         console.log(`you have ${userScore} points, the computer has ${pcScore}`);
         return ("you lose");
         }
@@ -106,14 +114,26 @@ function playRound(playerSelection, computerSelection) {
 /////////////////////////////////////DOM/////////////////////////         clicking a button needs to start a round that stores the selected button
 
 
+//READ THISSSSSSS!!!!!!!!!!!!!!!!!!!!!!
+//ADD A DIV TO DISPLAY THE RESULTS IN TEXT UNDERNEATH THE BUTTONS USOING ONLY THE DOM IE CREATE ELEMENT, ADD ELEMENT, APPEND CHILD ETC
+//DISPLAY THE RESULTS IN THIS DIV
+const results = document.querySelector("#results-ctn")
+results.style.textAlign = "center";
+results.style.paddingBottom = "10px"
+
+const displayResult = document.createElement('div');
+displayResult.classList.add('round-results');
+results.appendChild(displayResult)
+displayResult.style.padding = "10px"
+
+
+const displayScore = document.createElement('div');
+displayResult.classList.add('running-score');
+results.appendChild(displayScore)
+displayScore.style.padding = "10px"
 
 
 
- function playerSelect() {
-
- }
-
-        
     
         
     
