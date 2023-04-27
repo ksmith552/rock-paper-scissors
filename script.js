@@ -11,17 +11,23 @@ function getComputerChoice() {
 
 
 function playAgain() {
-    if (confirm("do you want to play again")) {
         userScore = parseInt(0);
         pcScore = parseInt(0);
-        game();
-    } else {
-        alert("weenie hut jr");
-    }
+        displayScore.innerText = ""
+        
+        displayScore.innerText = ""
+   
+        
+        displayScore.innerText = ""
+        displayResult.innerText = ""
+ 
     
 }
 
 
+ //current issues: reulst and running score texts is not clearining once winning score is reached
+ //game isnt immedialey ending on the winning point
+ //score is setting back to zero but displaying a random choice?
 
 
 
@@ -59,29 +65,55 @@ const btnContainer = document.getElementById("btn-container").style.justifyConte
 const buttons = document.querySelectorAll("button");
 
 buttons.forEach((button) => {
-    button.addEventListener("click", function (event) {       //we are listening for any of these buttons to be pressed. depending on the button pressed let player selection = button clicked
+    button.addEventListener("click", function (event) {
+               //we are listening for any of these buttons to be pressed. depending on the button pressed let player selection = button clicked
         const playerSelection = event.target.innerText
-        console.log(playerSelection)                         // it works, but idk if its best practice. we re selecting all buttons, converting the, into an array
-        playRound((playerSelection))                         // were listening for them to be clicked, once clicked we run the event function which turns
-    // the reuslt to lower case. the were calling playround with player selection as a paramater
+        console.log(playerSelection) 
+                             // it works, but idk if its best practice. we re selecting all buttons, converting the, into an array
+        playRound((playerSelection))  
+        if (userScore === 5) {
+            winResults.innerText = ""
+            setTimeout(function () { confirm("You won! Do you want to play Again") == true; playAgain() }, 1);
+            
+        } else if (pcScore === 5) {
+            winResults.innerText = ""
+            setTimeout(function () { confirm("Oh dear, You Lost! Do you want to play Again") == true; playAgain() }, 1);
+        }                        
         
         
     })
 })
 
 
+function test() {
+    if (userScore === 5) {
+        
+        alert('Wou win')
+    } else if (pcScore === 5) {
+        alert("you lose")
+    }
 
+}
 function playRound(playerSelection, computerSelection) {
      
     computerSelection = getComputerChoice();
     
+    //if (userScore === 5) {
+        //alert('Wou win')
+        //displayScore.innerText = ""
+       // playAgain()
+        
+    //} else if (pcScore === 5) {
+       // alert("you lose")
+   // playAgain()
+   // }
     
     if (playerSelection === computerSelection) {
         displayResult.innerText = "Draw!";
         displayScore.innerText = `you have ${userScore} points, the computer has ${pcScore}`
         console.log(`you have ${userScore} points, the computer has ${pcScore}`);
         return ("draw");
-    } if (playerSelection === "rock" && computerSelection === "scissors") {
+    } else if (playerSelection === "rock" && computerSelection === "scissors") {
         userScore++;
         displayResult.innerText = "You Win, Rock beats Scissors!";
         displayScore.innerText = `you have ${userScore} points, the computer has ${pcScore}`
@@ -105,9 +137,12 @@ function playRound(playerSelection, computerSelection) {
         displayScore.innerText = `you have ${userScore} points, the computer has ${pcScore}`
         console.log(`you have ${userScore} points, the computer has ${pcScore}`);
         return ("you lose");
+        
+         
         }
            
         
+
         }
     
         
@@ -131,6 +166,13 @@ const displayScore = document.createElement('div');
 displayResult.classList.add('running-score');
 results.appendChild(displayScore)
 displayScore.style.padding = "10px"
+
+const winResults = document.createElement('div');
+winResults.classList.add('win-results');
+results.appendChild(winResults)
+displayScore.style.padding = "10px"
+
+
 
 
 
