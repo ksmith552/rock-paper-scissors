@@ -1,12 +1,23 @@
 h1 {
     display: flex;
     justify-content: center;
- 
-    
-}
+ }
 
 #btn-container {
     display: flex;
-    
 }
 
+#rock-button {
+    padding: 5px;
+    margin: 5px;
+}
+
+#paper-button {
+    padding: 5px;
+    margin: 5px;
+}
+
+#scissors-button {
+    padding: 5px;
+    margin: 5px;
+}
