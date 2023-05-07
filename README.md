@@ -1,8 +1,5 @@
 # rock-paper-scissors
 
-Branch for main game to add a UI using only the DOM, aside from the buttons, which are in html
-Once dom methods and logic is working properly, the UI will be overhauld to actually be stylish!
-
 logic is tested and working properly and base UI is completed
 My idea was to convert this into being a runescape themed RPS using the combat triangle of melee, ranged, and mage combat styles. I meed to procure pixel images of these icons, most likely using the protect prayers.
 
